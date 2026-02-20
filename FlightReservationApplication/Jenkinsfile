@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    tools {
+        maven 'Maven-3.9'
+    }
+
     stages{
         stage('Code-pull'){
             steps{
@@ -8,7 +12,7 @@ pipeline{
         }
         stage ('Build'){
             steps{
-                sh'''
+                sh '''
                     cd FlightReservationApplication
                     mvn clean package
                 '''
